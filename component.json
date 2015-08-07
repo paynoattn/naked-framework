@@ -1,0 +1,12 @@
+{
+    "name": "naked-framework",
+    "version": "0.0.1",
+    "main": [
+        "app/css/naked-framework",
+        "app/img/sprites.gif",
+        "app/js/naked-framework"
+    ],
+    "dependencies": {
+        "jquery": ">=2.1.1"
+    }
+}
