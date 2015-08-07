@@ -1,42 +1,41 @@
 {
-    "name": "naked-framework",
-    "version": "0.0.1",
-    "title": "Naked framework",
-    "appPath": "app",
-    "description": "The simplest HTML/CSS framework of all time",
-    "keywords": [
-        "image",
-        "video",
-        "gallery"
-    ],
-    "homepage": "https://github.com/paynoattn/naked-framework",
-    "author": {
-        "name": "Chris Pawlukiewicz"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/paynoattn/naked-framework.git"
-    },
-    "bugs": "https://github.com/paynoattn/naked-framework/issues",
-    "dependencies": {
-        "jquery": ">=2.1.1"
-    },
-    "main": [
-        "app/css/naked-framework",
-        "app/img/sprites.gif",
-        "app/js/naked-framework"
-    ],
-    "ignore": [
-        "/*.*",
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "app/bower_components",
-        "test",
-        "tests"
-    ],
-    "authors": [
-        "Chris Pawlukiewicz <YOUR_MAIL@gmail.com>"
-    ],
-    "license": "MIT"
+  "name": "naked-framework",
+  "version": "0.0.1",
+  "title": "Naked framework",
+  "appPath": "app",
+  "description": "The simplest HTML/CSS framework of all time",
+  "keywords": [
+    "HTML framework",
+    "CSS framework"
+  ],
+  "homepage": "https://github.com/paynoattn/naked-framework",
+  "author": {
+    "name": "Chris Pawlukiewicz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paynoattn/naked-framework.git"
+  },
+  "bugs": "https://github.com/paynoattn/naked-framework/issues",
+  "dependencies": {
+    "normalize.scss": "~3.0.2+normalize.3.0.2"
+  },
+  "main": [
+    "app/css/naked-framework",
+    "app/img/sprites.gif",
+    "app/js/naked-framework"
+  ],
+  "ignore": [
+    "/*.*",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "Chris Pawlukiewicz <hi@paynoattn.com>"
+  ],
+  "license": "MIT"
 }
