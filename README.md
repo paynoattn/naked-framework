@@ -1,4 +1,4 @@
-ked Framework
+# Naked Framework
 
 Naked is a HTML/CSS framework that is as bare-bones as possible. Just a responsive CSS grid, and some basic typography and element styling. No need for a lengthy framework overwrites stylesheet or loading unused code into the DOM.
 
