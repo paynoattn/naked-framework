@@ -11,6 +11,14 @@ module.exports = function(grunt) {
             // configurable app path
             app: require('./bower.json').appPath || 'app',
         },
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'css',
+                    cssDir: '/'
+                }
+            }
+        },
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -18,14 +26,9 @@ module.exports = function(grunt) {
                 files: ['bower.json'],
                 tasks: ['bowerInstall']
             },
-            js: {
-                files: ['<%= bowerApp.app %>/js/{,*/}*.js'],
-                options: {
-                    livereload: true
-                }
-            },
             styles: {
-                files: ['<%= bowerApp.app %>/css/{,*/}*.css'],
+                files: ['<%= bowerApp.app %>/css/{,*/}*.scss'],
+                tasks: [compass],
                 options: {
                     livereload: true
                 }
@@ -89,6 +92,7 @@ module.exports = function(grunt) {
     });
     // Load tasks
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-bower-install');
     grunt.loadNpmTasks('grunt-express');
     grunt.loadNpmTasks('grunt-shell');
