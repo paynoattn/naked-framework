@@ -11,24 +11,19 @@ module.exports = function(grunt) {
             // configurable app path
             app: require('./bower.json').appPath || 'app',
         },
-        compass: {
-            dist: {
-                options: {
-                    sassDir: 'css',
-                    cssDir: '/'
-                }
-            }
-        },
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
+            compass: {
+                files: ['**/*.{scss,sass}'],
+                tasks: ['compass:dev']
+            },
             bower: {
                 files: ['bower.json'],
                 tasks: ['bowerInstall']
             },
             styles: {
-                files: ['<%= bowerApp.app %>/css/{,*/}*.scss'],
-                tasks: [compass],
+                files: ['<%= bowerApp.app %>/css/{,*/}*.css'],
                 options: {
                     livereload: true
                 }
@@ -49,10 +44,10 @@ module.exports = function(grunt) {
         // The actual grunt server settings
         connect: {
             options: {
-                port: 9000,
+                port: 4567,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: 'localhost',
-                livereload: 35729,
+                livereload: 357291,
                 base: '<%= bowerApp.app %>'
             },
             livereload: {
@@ -76,6 +71,22 @@ module.exports = function(grunt) {
             }
 
         },
+        compass: {
+            dev: {
+                options: {
+                    sassDir: 'app/sass',
+                    cssDir: 'app/css',
+                    environment: 'development'
+                }
+            },
+            prod: {
+               options: {
+                    sassDir: 'app/sass',
+                    cssDir: 'app/css',
+                    environment: 'production'
+                } 
+            }
+        },
         // Automatically inject Bower components into the app
         bowerInstall: {
             app: {
@@ -92,12 +103,15 @@ module.exports = function(grunt) {
     });
     // Load tasks
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-bower-install');
     grunt.loadNpmTasks('grunt-express');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Register new tasks
-    grunt.registerTask('serve', ['bowerInstall', 'connect', 'watch']);
+    grunt.registerTask('default', ['compass:dev', 'watch']);
+    grunt.registerTask('serve', ['bowerInstall', 'connect', 'compass:dev', 'watch']);
     grunt.registerTask('publish', ['shell:bowerRegister']);
 }
